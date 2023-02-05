@@ -4,6 +4,7 @@ import 'dart:io';
 import 'questions/good_manners.dart';
 import 'questions/time_questions.dart';
 import 'timing/waiting_time.dart';
+import 'desafios/exercicio_um.dart';
 
 void main() async {
   String robotBot = 'RobotBOT:\n';
@@ -37,6 +38,11 @@ void main() async {
       TimeQuestions(usuario).timeQuestion();
     } else if (GoodManners(question: usuario).isThisManners()) {
       GoodManners(question: usuario).goodManners();
+    } else if (Count(question: usuario).isThisCountQuestion()) {
+      countdownToClose.pause();
+      await Count(question: usuario).countToAsync();
+      Count(question: usuario).countToSync();
+      countdownToClose.resume();
     } else {
       await BotClock().clock(seconds: 2);
       print(robotBot +
