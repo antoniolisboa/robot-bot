@@ -13,7 +13,7 @@ class Count {
   }
 
   Future countToAsync() async {
-    print('                     $robotBot:\n Contador assíncrono');
+    print('$robotBot Contador assíncrono');
     int value = 1;
     try {
       String? str = RegExp('[1-9]([0-9])*').stringMatch(question);
@@ -30,7 +30,7 @@ class Count {
   }
 
   void countToSync() {
-    print('                     $robotBot:\n Contador síncrono');
+    print('$robotBot Contador síncrono');
     int value = 1;
     try {
       String? str = RegExp('[1-9]([0-9])*').stringMatch(question);
