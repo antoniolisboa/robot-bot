@@ -39,6 +39,12 @@ class MyKnowledge {
     while (true) {
       rand = Random().nextInt(knowledge.length);
       await Future.delayed(Duration(seconds: 5));
+
+      // Implemetando um erro de 30%
+      if (Random().nextInt(10) < 3) {
+        throw Exception('Não foi possível acessar os dados sobre meus conhecimentos.');
+      }
+
       yield knowledge[rand];
     }
   }

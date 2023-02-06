@@ -26,6 +26,7 @@ void main() async {
 
   MyKnowledge.myKowledgeRandom().listen(
     (event) => print(event),
+    onError: (e) => print(e),
   );
 
   print('-- Iniciando o RobotBot, aguarde..--');
