@@ -1,6 +1,8 @@
+import 'dart:math';
+
 class MyKnowledge {
   String question;
-  String robotBot = 'RobotBot:';
+  static String robotBot = 'RobotBot:';
   bool isThisAboutMyKnowledge = false;
 
   MyKnowledge({required this.question});
@@ -24,5 +26,20 @@ class MyKnowledge {
         'tipo 1+1 = 3 ;)');
     print('$robotBot Por fim consigo contar até um valor desejado.');
     print('EU SOU O BICHÃO MEMO HAHAHAHAH');
+  }
+
+  static Stream myKowledgeRandom() async* {
+    List<String> knowledge = [
+      '$robotBot Eu sei dizer as horas, o dia e o ano.',
+      '$robotBot Eu sei boas maneira, pois sou muito educado ^-^',
+      '$robotBot Consigo fazer operações matemática simples (1+1=3) ;)',
+      '$robotBot Consigo contar até um valor desejado.'
+    ];
+    int rand;
+    while (true) {
+      rand = Random().nextInt(knowledge.length);
+      await Future.delayed(Duration(seconds: 5));
+      yield knowledge[rand];
+    }
   }
 }

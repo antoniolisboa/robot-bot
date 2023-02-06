@@ -24,6 +24,10 @@ void main() async {
     },
   );
 
+  MyKnowledge.myKowledgeRandom().listen(
+    (event) => print(event),
+  );
+
   print('-- Iniciando o RobotBot, aguarde..--');
   await BotClock().clock(seconds: 2);
   print('RobotBot:\n Oi :) \n Como posso ajudar?');
