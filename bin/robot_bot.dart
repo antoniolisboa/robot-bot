@@ -5,6 +5,7 @@ import 'desafios/my_knowledge.dart';
 import 'questions/good_manners.dart';
 import 'questions/math_questions.dart';
 import 'questions/time_questions.dart';
+import 'questions/world_domination.dart';
 import 'timing/waiting_time.dart';
 import 'desafios/exercicio_um.dart';
 
@@ -49,6 +50,13 @@ void main() async {
       MathQuestions(question: usuario).mathQuestion();
     } else if (MyKnowledge(question: usuario).isThisAboutKnowledge()) {
       MyKnowledge(question: usuario).myKnowledgeQuestion();
+    } else if (WorldDomination(question: usuario)
+        .isThisWorldDominationQuestion()) {
+      countdownToClose.pause();
+      await WorldDomination(question: usuario)
+          .worldDominationQuestion()
+          .then((value) => print(value));
+      countdownToClose.resume();
     } else {
       await BotClock().clock(seconds: 2);
       print(robotBot +
