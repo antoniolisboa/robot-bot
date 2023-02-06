@@ -1,15 +1,15 @@
 class Count {
   String question;
-  bool isThisCount = false;
+  bool isThisACountQuestion = false;
   String robotBot = 'RobotBot:\n';
 
   Count({required this.question});
 
-  bool isThisCountQuestion() {
+  bool isThisCount() {
     if (question.contains(RegExp('(C|c)ont(e|ar)'))) {
-      isThisCount = true;
+      isThisACountQuestion = true;
     }
-    return isThisCount;
+    return isThisACountQuestion;
   }
 
   Future countToAsync() async {
