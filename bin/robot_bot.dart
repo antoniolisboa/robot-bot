@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'desafios/my_knowledge.dart';
+import 'game/logic_game.dart';
 import 'questions/good_manners.dart';
 import 'questions/math_questions.dart';
 import 'questions/time_questions.dart';
@@ -61,6 +62,10 @@ void main() async {
       await WorldDomination(question: usuario)
           .worldDominationQuestion()
           .then((value) => print(value));
+      countdownToClose.resume();
+    } else if (LogicGame(question: usuario).isThisLogicGameInput()) {
+      countdownToClose.pause();
+      await LogicGame(question: usuario).logicGameAnswar();
       countdownToClose.resume();
     } else {
       await BotClock().clock(seconds: 2);
