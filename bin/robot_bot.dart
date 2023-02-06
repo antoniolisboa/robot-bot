@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'desafios/my_knowledge.dart';
 import 'questions/good_manners.dart';
 import 'questions/math_questions.dart';
 import 'questions/time_questions.dart';
@@ -46,6 +47,8 @@ void main() async {
       countdownToClose.resume();
     } else if (MathQuestions(question: usuario).isThisMath()) {
       MathQuestions(question: usuario).mathQuestion();
+    } else if (MyKnowledge(question: usuario).isThisAboutKnowledge()) {
+      MyKnowledge(question: usuario).myKnowledgeQuestion();
     } else {
       await BotClock().clock(seconds: 2);
       print(robotBot +
